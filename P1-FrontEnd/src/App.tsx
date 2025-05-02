@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { SidebarContainer } from './components/shared/sidebar/sidebar-container'
+import { Sidebar } from './components/shared/sidebar/sidebar'
+import { SidebarContent } from './components/shared/sidebar/sidebar-content'
+import { SidebarGroup } from './components/shared/sidebar/sidebar-group'
+import { SidebarItem } from './components/shared/sidebar/sidebar-item'
+import { Home, List, Settings } from 'lucide-react'
+import { SidebarMainWrapper } from './components/shared/sidebar/sidebar-main-wrapper'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    
+      
+       <SidebarContainer>
+        <Sidebar>
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarItem label= "Dashboard" icon={Home} href="/dashboard"/>
+              <SidebarItem label= "Products" icon={List} href="/products"/>
+              <SidebarItem label= "Settings" icon={Settings} href="/settting"/>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+        <SidebarMainWrapper>
+        <div>This is the App.tsx screen</div>
+        </SidebarMainWrapper>
+        </SidebarContainer>
+      
+      
   )
 }
 
